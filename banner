@@ -1,0 +1,361 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        /* Estilos gerais */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos do slider de imagens */
+        .slider {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider .slide {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slider .slide.active {
+            opacity: 1;
+        }
+
+        .slider .slide img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            /* Adicionar borda arredondada e sombra */
+            border-radius: 0 0 5px 5px;
+            /* define um raio de 10px para os cantos inferiores esquerdo e direito */
+            border-bottom: 1px solid rgb(198, 197, 197);
+            /*  box-shadow: 5px 5px 5px black;*/
+        }
+
+        .slider .slide .content1, .slider .slide .content2, .slider .slide .content3, .slider .slide .content4 {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: white;
+            /* Centralizar horizontalmente e verticalmente */
+            left: 50%;
+            top: 50%;
+            text-shadow: 2px 2px 5px gray;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        .slider .slide .content1 h3,
+        .content1 p, .slider .slide .content2 h3,
+        .content2 p, .slider .slide .content3 h3,
+        .content3 p, .slider .slide .content4 h3,
+        .content4 p {
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px gray;
+            text-align: center;
+        }
+
+        .slider .slide .content1 .button1, .slider .slide .content2 .button2, .slider .slide .content3 .button3, .slider .slide .content4 .button4 {
+            padding: 10px 20px; 
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 125px;
+        }
+
+
+        .button-left {
+            width: 50px;
+            height: 50px;
+            z-index: 10;
+            margin-left: 5px;
+            border: none;
+            background-color: transparent;
+
+        }
+
+        .button-right {
+            width: 50px;
+            height: 50px;
+            margin-left: 85%;
+            border: none;
+            background-color: transparent;
+            z-index: 10;
+        }
+
+        /* Adicione as classes e os estilos das setas aqui */
+        .fa-chevron-left {
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .fa-chevron-right {
+            color: white;
+            font-size: 30px;
+
+        }
+
+        .fa-chevron-left:hover {
+            transform: scale(1.2);
+            /* Aumenta o ícone em 20% */
+        }
+
+        .fa-chevron-right:hover {
+            transform: scale(1.2);
+            /* Aumenta o ícone em 20% */
+        }
+
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            color: #fff;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .slider .dots li {
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .slider .dots li.active {
+            width: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <!-- Primeira imagem -->
+        <!--<img src="URL_ou_caminho_do_gif" alt="Uma breve descrição do gif">
+        <video src="URL_ou_caminho_do_vídeo" alt="Uma breve descrição do vídeo" autoplay loop muted>-->
+        <div class="slide active">
+            <img src="https://blog.abler.com.br/wp-content/uploads/2021/10/jornada-do-candidato-1-1.jpg" alt="Imagem 1">
+            <div class="content1">
+                <h3>Jornadas</h3>
+                <p>Conhecimento diversificado para a sua saúde e bem-estar</p>
+                <a href="https://www.novalgina.com.br/produtos/?gclid=EAIaIQobChMIkaj976HThAMV7lhIAB2i9QfbEAAYASAAEgIEifD_BwE"><button class="button1">Ver mais</button></a>
+            </div>
+        </div>
+
+        <!-- Segunda imagem -->
+        <div class="slide">
+            <img src="https://i.pinimg.com/originals/53/98/da/5398da302cf96198de689e30c515614b.gif" alt="Imagem 2">
+            <div class="content2">
+                <h3>Relaxe e recarregue-se</h3>
+                <p>Diversos equipamentos e conteúdos exclusivos</p>
+                <a href="https://oglobo.globo.com/saude/guia/dipirona-o-que-e-para-que-serve-como-usar-e-contraindicacoes.ghtml"><button class="button2">Ver mais</button></a>
+            </div>
+        </div>
+
+        <!-- Terceira imagem -->
+        <div class="slide">
+            <img src="https://static.wixstatic.com/media/76d322_e2cdbe2090fa4747b02fcd487d918eeb~mv2.png/v1/fill/w_980,h_704,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/76d322_e2cdbe2090fa4747b02fcd487d918eeb~mv2.png"alt="Imagem 3">
+            <div class="content3">
+                <h3>Informações para o seu dia a dia</h3>
+                <p>Notícias e novidades sobre saúde e qualidade de vida</p>
+                <a href="https://www.benegrip.com.br/saude/tratamentos-gripe/o-que-e-paracetamol#:~:text=Cientificamente%20conhecido%20como%20um%20Anti,na%20farm%C3%A1cia%20sem%20receita%20m%C3%A9dica."><button class="button3">Ver mais</button></a>
+            </div>
+        </div>
+
+        <!-- Quarta imagem -->
+        <div class="slide">
+            <img src="https://visme.co/blog/wp-content/uploads/2020/02/header-1200.gif" alt="Imagem 4">
+            <div class="content4">
+                <h3>Autoavalições e testes</h3>
+                <p>Para manter a sua saúde em foco!</p>
+                <a href="https://www.google.com/"><button class="button4">Ver mais</button></a>
+            </div>
+        </div>    
+
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="button-container">
+            <button class="button-left" aria-label="Voltar">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="button-right" aria-label="Avançar">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+        <script>
+            /*****VARIÁVEIS GLOBAIS****************************************/
+
+            // Selecionar os elementos do slider
+            const slider = document.querySelector(".slider");
+            const slides = document.querySelectorAll(".slide");
+
+            let index = 0; // Definir o índice do slide atual                      
+            let largura = window.innerWidth; // Obter a largura da janela
+
+            let lastClick = 0;
+
+            let tempo=0;
+            let myTime=4000;//4seg
+
+            // Variáveis para armazenar a posição inicial e final do dedo
+            let startX = 0;
+            let endX = 0;
+
+            //Botões para avançar e voltar
+            let next = document.getElementsByClassName('button-right');
+            let prev = document.getElementsByClassName('button-left');
+
+            // Pegar a lista de bolinhas pela classe
+            let dots = document.getElementsByClassName("dots")[0];
+            let active = 0;
+
+            //botões para avançar e retornar slide
+            const buttonPrev = document.querySelector(".button-left");
+            const buttonNext = document.querySelector(".button-right");
+
+            //eventos de click para avançar e voltar
+            buttonPrev.addEventListener("click", function () {
+                showPrevSlide();
+            });
+
+            buttonNext.addEventListener("click", function () {
+                showNextSlide();
+            });
+            //Adiciona eventos de toque ao elemento que contém o slider
+            slider.addEventListener("touchstart", handleTouchStart);
+            slider.addEventListener("touchmove", handleTouchMove);
+            slider.addEventListener("touchend", handleTouchEnd);
+
+            /******FUNÇÕES*********************************************************************/
+
+            // Função que mostra o próximo slide
+            function showNextSlide() {
+                let now = Date.now();
+                if (now - lastClick < 1000) { // Se o último clique foi há menos de 1 segundo
+                    return; // Não faça nada
+                }
+                lastClick = now;
+                clearInterval(tempo);
+                tempo = setInterval(showNextSlide, myTime);
+                // Remover a classe active da bolinha atual
+                dots.children[index].classList.remove("active");
+
+                // Remover a classe active do slide atual
+                slides[index].classList.remove("active");
+
+                // Incrementar o índice ou voltar para zero se for o último slide
+                if (index == (slides.length - 1)) {
+                    index = 0;
+                }
+                else {
+                    index++;
+                }
+                // Adicionar a classe ativa na próxima bolinha
+                dots.children[index].classList.add("active");
+
+                // Adicionar a classe active ao próximo slide
+                slides[index].classList.add("active");
+            }
+
+            //chama a função showNextSlide a cada 4 segundos (4000 milissegundos)
+            tempo = setInterval(showNextSlide, myTime);
+
+            // Função que mostra o slide anterior
+            function showPrevSlide() {
+                let now = Date.now();
+                if (now - lastClick < 1000) { // Se o último clique foi há menos de 1 segundo
+                    return; // Não faça nada
+                }
+                lastClick = now;
+                clearInterval(tempo);
+                tempo = setInterval(showNextSlide, myTime);
+                // Remover a classe active da bolinha atual
+                dots.children[index].classList.remove("active");
+
+                // Remover a classe active do slide atual
+                slides[index].classList.remove("active");
+
+                // decrementar o índice ou voltar para ultima se for o primeiro slide             
+                if (index == 0) { // se estiver no primeiro slide, volta para o ultimo slide
+                    //atualiza valor do index para o ultimo slide
+                    index = (slides.length - 1);
+                }
+                else { //se não for o primeiro slide                    
+                    //atualiza o valor do index
+                    index--;
+                }
+                // Adicionar a classe active na bolinha anterior
+                dots.children[index].classList.add("active");
+
+                // Adicionar a classe active ao slide anterior
+                slides[index].classList.add("active");
+            }
+
+            // Função que é chamada quando o dedo toca na tela
+            function handleTouchStart(event) {
+                // Obter a posição inicial do dedo
+                startX = event.touches[0].clientX;
+            }
+
+            // Função que é chamada quando o dedo se move na tela
+            function handleTouchMove(event) {
+                // Obter a posição final do dedo
+                endX = event.touches[0].clientX;
+            }
+
+            // Função que é chamada quando o dedo deixa a tela
+            function handleTouchEnd(event) {
+                // Calcular a diferença entre a posição inicial e final
+                let diffX = endX - startX;
+                // Se a diferença for negativa, significa que o dedo deslizou para a esquerda
+                if (diffX < 0) {
+                    // Chamar a função que mostra o próximo slide
+                    showNextSlide();
+                }
+                // Se a diferença for positiva, significa que o dedo deslizou para a direita
+                else if (diffX > 0) {
+                    // Chamar a função que mostra o slide anterior
+                    showPrevSlide();
+                }
+            }
+        </script>
+</body>
+
+</html>
